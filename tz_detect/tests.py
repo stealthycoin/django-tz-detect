@@ -23,7 +23,7 @@ class ViewTestCase(TestCase):
         response = SetOffsetView.as_view()(request)
         self.assertEqual(response.status_code, 200)
         self.assertIn('detected_tz', request.session)
-        self.assertIsInstance(request.session['detected_tz'], BaseTzInfo)
+        self.assertIsInstance(request.session['detected_tz'], basestring)
 
     def test_xhr_bad_method(self):
         from .views import SetOffsetView
